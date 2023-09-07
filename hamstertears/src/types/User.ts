@@ -1,6 +1,6 @@
-export type UserInfo = {
-    role: role;
+export interface UserInfo {
+    role: UserRole;
     username: string;
 };
 
-type role = "ADMIN" | "USER";
+export type UserRole = "ADMIN" | "USER";
