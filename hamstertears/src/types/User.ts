@@ -1,6 +1,14 @@
+import { WorkoutInterface } from "./Booking";
+
+export interface LoginInterface {
+    owner: string;
+    password: string;
+}
+
 export interface UserInfo {
-    role: UserRole;
+    id: string;
+    name: string;
+    role: "ADMIN" | "USER";
+    bookedWorkouts: WorkoutInterface[];
     username: string;
 };
-
-export type UserRole = "ADMIN" | "USER";

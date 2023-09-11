@@ -1,4 +1,6 @@
-export interface Booking {
-    owner: string;
-    date: Date;
+export interface WorkoutInterface {
+    id: string;
+    title: string;
+    time: string;
+    // duration: Number;
 }
