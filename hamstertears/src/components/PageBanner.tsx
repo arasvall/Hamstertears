@@ -12,7 +12,7 @@ function PageBanner (props:PageBannerInfo): JSX.Element {
                 HamsterTears
             </h2>
             <p>
-                Welcome to Strong n' Epic { props.user.role} {props.user.username}
+                Welcome to Strong n' Epic { props.user.role} {props.user.name}
             </p>
         </header>
     )

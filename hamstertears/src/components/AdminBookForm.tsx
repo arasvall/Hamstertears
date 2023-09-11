@@ -1,55 +1,57 @@
-import { useState } from "react";
-import FetchOptions from "../service/service";
-import { WorkoutInterface } from "../types/Booking";
-// import { Weekday, hour } from "../types/Schema";
+import { useState, ChangeEvent, FormEvent } from "react";
+// import FetchOptions from "../service/service";
+// import { WorkoutInterface } from "../types/Booking";
 import { UserInfo } from "../types/User";
+import React  from "react";
 
 
-interface AdminWorkout {
-    workouts: WorkoutInterface[]
-    setWorkouts: React.Dispatch<React.SetStateAction<WorkoutInterface[]>>;
+interface WorkoutData {
+    id: string;
+    title: string;
+    time: string;
+
 }
 
-type InputEvent = ChangeEvent<HTMLInputElement>;
+type InputEvents = ChangeEvent<HTMLInputElement>;
 
 type AdminWorkoutProps = {
-    handlebooking: (booking: Booking) => void
+    handleWorkouts: (Workouts: UserInfo) => void
+}
+const defaultWorkoutData: WorkoutData = {
+    id: "",
+    title: " ",
+    time: ""
 }
 
-const defaultAdminWorkout: AdminWorkout = {
-    title: '',
-    name: ''
+function AdminWorkoutForm({handleWorkouts}: AdminWorkoutProps): JSX.Element {
+    const [WorkoutsData, setWorkoutData] = useState(defaultWorkoutData);
+    
+    //spara passet
+        const handleNameChange = (event: InputEvents) => {
+            setWorkoutData({...WorkoutsData, title: event.target.value});
+        }
+    }
+    const handleFormSumbit = (event: FormEvent) => {
+        event.preventDefault();
+        handleWorkouts({
+            title: WorkoutsData.title,
+            // time: WorkoutsData.time
+        });
+    }  
+    return (
+    <form onSubmit={handleFormSumbit}>
+        <div>
+            <label>Name</label>
+            <input type="text" name="name" onChange={handleNameChange}/>
+        </div>
+
+        <div>
+            <label>Time</label>
+            <input type="time" name="time" onChange={handleNameChange}/>
+        </div>
+        <button type="submit">Spara</button>
+    </form>
+    )
 }
 
-function 
-
-// type AdminWorkoutProps = {
-//     workouts: WorkoutInterface []
-//     setWorkouts: React.Dispatch<React.SetStateAction<WorkoutInterface[]>>;
-// }
-
-
-// const defaultValue: WorkoutInterface = {
-//     id: "",
-//     title: "",
-//     time: "",
-//     progress: ""
-// }
-
-// export default function Adminprop ({workoutItem, setWorkouts}: AdminWorkoutProps) {
-//     const [toggle, setToggle] = useState(false)
-//     const [inputValues, setInputValues] = useState(defaultValue)
-// }
-
-// //spara passet
-// function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-//     const { name, value} = event.target;
-
-//     setInputValues((prevInputValues) => {
-//         return {
-//             ..prevInputValues,
-//             [name]: getValue,
-//         };
-//     });
-// }
-
+export default AdminWorkoutForm;

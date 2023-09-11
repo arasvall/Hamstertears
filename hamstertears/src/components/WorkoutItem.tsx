@@ -8,10 +8,10 @@ type WorkoutItemProps = {
 function WorkoutItem({Workouts}: WorkoutItemProps): JSX.Element {
     return (
         <div>
-            <p>Name: ({Workouts.title})</p>
+            {/* <p>Name: ({Workouts.name})</p> */}
             {/* <p>Date: ({Workouts.time })</p> */}
             {/* <p>Antal: ({Workouts.duration})</p> */}
-            <button className="workouts-button">Save</button>
+            {/* <button className="workouts-button">Save</button> */}
         </div>
     )
 }

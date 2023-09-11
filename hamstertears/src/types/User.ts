@@ -10,5 +10,4 @@ export interface UserInfo {
     name: string;
     role: "ADMIN" | "USER";
     bookedWorkouts: WorkoutInterface[];
-    username: string;
 };
